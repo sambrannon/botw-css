@@ -6,5 +6,5 @@ For now, it's just the hearts and heart container.
 
 ## Credits
 
-Image: Nintendo
-Hylia Sans Font: Omni Jacala [link](http://artsyomni.com/hyliaserif) transformed to a web font via [Font Squirrel](https://www.fontsquirrel.com/tools/webfont-generator).
+- Image: Nintendo
+- Hylia Sans Font: Omni Jacala [link](http://artsyomni.com/hyliaserif) transformed to a web font via [Font Squirrel](https://www.fontsquirrel.com/tools/webfont-generator).
