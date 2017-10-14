@@ -5,9 +5,11 @@
 @import 'mixins/heart';
 
 // globals
+@import 'globals/fonts';
 @import 'globals/base';
 @import 'globals/github-corner';
 
 // components
 @import 'components/heart';
+@import 'components/site-title';
 @import 'components/ui-container';

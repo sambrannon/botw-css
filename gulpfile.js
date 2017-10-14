@@ -21,10 +21,16 @@ gulp.task('copyIndex', function () {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copyFonts', function () {
+  return gulp.src('./src/fonts/**/*')
+    .pipe(gulp.dest('./dist/fonts'));
+});
+
 gulp.task('watch', function () {
   gulp.watch('styles/**/*.scss', {cwd: './src/'}, ['sass']);
   gulp.watch('images/**/*', {cwd: './src/'}, ['imagemin']);
   gulp.watch('index.html', {cwd: './src/'}, ['copyIndex']);
+  gulp.watch('fonts/**/*', {cwd: './src/'}, ['copyFonts']);
 });
 
-gulp.task('default', [ 'imagemin', 'sass', 'copyIndex' ]);
+gulp.task('default', [ 'imagemin', 'sass', 'copyIndex', 'copyFonts' ]);
