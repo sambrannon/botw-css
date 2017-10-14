@@ -5,10 +5,8 @@
   "author": "Sam Brannon <sam@sambrannon.com>",
   "license": "MIT",
   "dependencies": {
-    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^3.4.0",
-    "gulp-sass": "^3.1.0",
-    "path": "^0.12.7"
+    "gulp-sass": "^3.1.0"
   }
 }

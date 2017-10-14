@@ -16,9 +16,15 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist/styles'));
 });
 
+gulp.task('copyIndex', function () {
+  return gulp.src('./src/index.html')
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('watch', function () {
   gulp.watch('styles/**/*.scss', {cwd: './src/'}, ['sass']);
   gulp.watch('images/**/*', {cwd: './src/'}, ['imagemin']);
+  gulp.watch('index.html', {cwd: './src/'}, ['copyIndex']);
 });
 
-gulp.task('default', [ 'imagemin', 'sass' ]);
+gulp.task('default', [ 'imagemin', 'sass', 'copyIndex' ]);
