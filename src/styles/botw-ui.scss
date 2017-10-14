@@ -1,5 +1,12 @@
+// settings
 @import 'settings/variables';
 
+// mixins
+@import 'mixins/heart';
+
+// globals
 @import 'globals/base';
 
+// components
 @import 'components/heart';
+@import 'components/ui-container';

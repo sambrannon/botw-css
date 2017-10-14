@@ -1,1 +1,8 @@
-// nothing here, yet
+//heart
+$heart-empty: #4e4e4e;
+$heart-filled: #fa4047;
+$heart-temp: #fefc37;
+$base-heart-size: 8px;
+$base-heart-ratio: 1;
+$heart-margin-right: ($base-heart-size * $base-heart-ratio) * 1.9;
+$heart-margin-bottom: ($base-heart-size * $base-heart-ratio) * 2;

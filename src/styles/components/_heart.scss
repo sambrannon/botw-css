@@ -1,95 +1,53 @@
-$heart-empty: #3c3d37;
-$heart-filled: #fa4047;
-$heart-temp: #fefc37;
-$base-heart-size: 12px;
-$base-heart-ratio: 0.9;
-
 .heart-container {
   display: flex;
-  margin: 20px 0;
+  flex-wrap: wrap;
+  width: ($base-heart-size + $heart-margin-right) * 15;
+  margin: $base-heart-size * (2/3);
 
   .heart {
-    margin: 0 ($base-heart-size * $base-heart-ratio);
+    margin-top: 0;
+    margin-right: $heart-margin-right;
+    margin-bottom: $heart-margin-bottom;
+    margin-left: 0;
   }
-}
-
-@mixin heart($size: $base-heart-size, $ratio: $base-heart-ratio, $color: $heart-empty) {
-
-  display: block;
-  position: relative;
-  transform: rotate(-45deg);
-  width: 0;
-  height: 0;
-  background-color: $color;
-  border: solid ($size * 0.5) $heart-empty;
-
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    border-radius: 50%;
-    background-color: $color;
-  }
-
-  &::before {
-    width: $size;
-    height: ($size * $ratio);
-    top: -((($size * $ratio) + ($size * 0.5)) - 1px );
-    left: -($size * 0.5);
-    border-radius: ($size * 0.5) ($size * 0.5) 0 0;
-  }
-
-  &::after {
-    width: ($size * $ratio);
-    height: $size;
-    top: -($size * 0.5);
-    left: (($size * 0.5) - 1px);
-    border-radius: 0 ($size * 0.5) ($size * 0.5) 0;
-  }
-
 }
 
 .heart {
   @include heart();
 
-  &.heart--quarter {
-    border-top-color: $heart-filled;
-
-    &::before { background-color: $heart-filled;}
-  }
-
-  &.heart--half {
-    border-top-color: $heart-filled;
-    border-left-color: $heart-filled;
-
-    &::before { background-color: $heart-filled; }
+  &.heart--temp {
+    color: $heart-temp
   }
 
   &.heart--three-quarters {
-    border-top-color: $heart-filled;
-    border-left-color: $heart-filled;
-    border-bottom-color: $heart-filled;
+    border-right-color: $heart-empty;
 
-    &::before { background-color: $heart-filled; }
+    &::after { background-color: $heart-empty; }
   }
 
-  &.heart--filled {
-    border-color: $heart-filled;
+  &.heart--half {
+    border-right-color: $heart-empty;
+    border-bottom-color: $heart-empty;
 
-    &::before,
-    &::after {
-      background-color: $heart-filled;
-    }
+    &::after { background-color: $heart-empty; }
   }
 
-  &.heart--temp {
-    border-color: $heart-temp;
+  &.heart--quarter {
+    border-right-color: $heart-empty;
+    border-bottom-color: $heart-empty;
+    border-left-color: $heart-empty;
 
-    &::before,
-    &::after {
-      background-color: $heart-temp;
-    }
+    &::after { background-color: $heart-empty; }
+  }
+
+  &.heart--empty {
+    border-right-color: $heart-empty;
+    border-bottom-color: $heart-empty;
+    border-left-color: $heart-empty;
+    border-top-color: $heart-empty;
+
+    &::before { background-color: $heart-empty; }
+    &::after { background-color: $heart-empty; }
   }
 
 }
