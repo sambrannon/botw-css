@@ -1,0 +1,11 @@
+{
+  "name": "botw-css",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sam Brannon <sam@sambrannon.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

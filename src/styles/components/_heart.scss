@@ -1,0 +1,41 @@
+.heart-container {
+  margin: 100px auto;
+  width: 100px;
+
+}
+
+$heart-size: 30px;
+$heart-wing-offset: 0.8;
+
+.heart {
+  display: block;
+  position: relative;
+  transform: rotate(-45deg);
+  width: $heart-size;
+  height: $heart-size;
+  background-color: $red;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: $heart-size;
+    height: $heart-size;
+    border-radius: 50%;
+    background-color: $red;
+  }
+
+  &::before {
+    top: -($heart-size * $heart-wing-offset);
+    left: 0;
+    border-radius: ($heart-size * 0.5) ($heart-size * 0.5) 0 0;
+  }
+
+  &::after {
+    top: 0;
+    right: -($heart-size * $heart-wing-offset);
+    border-radius: 0 ($heart-size * 0.5) ($heart-size * 0.5) 0;
+  }
+
+}
