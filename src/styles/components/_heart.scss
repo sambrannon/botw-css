@@ -1,41 +1,95 @@
-.heart-container {
-  margin: 100px auto;
-  width: 100px;
+$heart-empty: #3c3d37;
+$heart-filled: #fa4047;
+$heart-temp: #fefc37;
+$base-heart-size: 12px;
+$base-heart-ratio: 0.9;
 
+.heart-container {
+  display: flex;
+  margin: 20px 0;
+
+  .heart {
+    margin: 0 ($base-heart-size * $base-heart-ratio);
+  }
 }
 
-$heart-size: 30px;
-$heart-wing-offset: 0.8;
+@mixin heart($size: $base-heart-size, $ratio: $base-heart-ratio, $color: $heart-empty) {
 
-.heart {
   display: block;
   position: relative;
   transform: rotate(-45deg);
-  width: $heart-size;
-  height: $heart-size;
-  background-color: $red;
+  width: 0;
+  height: 0;
+  background-color: $color;
+  border: solid ($size * 0.5) $heart-empty;
 
   &::before,
   &::after {
     content: '';
     display: block;
     position: absolute;
-    width: $heart-size;
-    height: $heart-size;
     border-radius: 50%;
-    background-color: $red;
+    background-color: $color;
   }
 
   &::before {
-    top: -($heart-size * $heart-wing-offset);
-    left: 0;
-    border-radius: ($heart-size * 0.5) ($heart-size * 0.5) 0 0;
+    width: $size;
+    height: ($size * $ratio);
+    top: -((($size * $ratio) + ($size * 0.5)) - 1px );
+    left: -($size * 0.5);
+    border-radius: ($size * 0.5) ($size * 0.5) 0 0;
   }
 
   &::after {
-    top: 0;
-    right: -($heart-size * $heart-wing-offset);
-    border-radius: 0 ($heart-size * 0.5) ($heart-size * 0.5) 0;
+    width: ($size * $ratio);
+    height: $size;
+    top: -($size * 0.5);
+    left: (($size * 0.5) - 1px);
+    border-radius: 0 ($size * 0.5) ($size * 0.5) 0;
+  }
+
+}
+
+.heart {
+  @include heart();
+
+  &.heart--quarter {
+    border-top-color: $heart-filled;
+
+    &::before { background-color: $heart-filled;}
+  }
+
+  &.heart--half {
+    border-top-color: $heart-filled;
+    border-left-color: $heart-filled;
+
+    &::before { background-color: $heart-filled; }
+  }
+
+  &.heart--three-quarters {
+    border-top-color: $heart-filled;
+    border-left-color: $heart-filled;
+    border-bottom-color: $heart-filled;
+
+    &::before { background-color: $heart-filled; }
+  }
+
+  &.heart--filled {
+    border-color: $heart-filled;
+
+    &::before,
+    &::after {
+      background-color: $heart-filled;
+    }
+  }
+
+  &.heart--temp {
+    border-color: $heart-temp;
+
+    &::before,
+    &::after {
+      background-color: $heart-temp;
+    }
   }
 
 }
