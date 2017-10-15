@@ -1,0 +1,85 @@
+$sword-color: #fff;
+$sword-size: 30px;
+
+@function sword-multiplier($value, $sword-size: $sword-size) {
+  @return $sword-size * ($value / 30);
+}
+
+.sword {
+  position: relative;
+  width: $sword-size;
+  height: $sword-size;
+  transform: rotate(45deg);
+  backface-visibility: hidden;
+}
+
+.sword__hilt {
+  position: absolute;
+  width: sword-multiplier(10);
+  height: sword-multiplier(10);
+  top: sword-multiplier(18) + sword-multiplier(1);
+  left: 50%;
+  transform: translateX(-50%);
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    background-color: $sword-color;
+    border-radius: sword-multiplier(4) / 2;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+
+  &::before {
+    width: sword-multiplier(12);
+    height: sword-multiplier(2.5);
+  }
+
+  &::after {
+    width: sword-multiplier(4);
+    height: sword-multiplier(10);
+    top: 0;
+  }
+}
+
+.sword__blade {
+  position: absolute;
+  top: sword-multiplier(4);
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: sword-multiplier(14) solid $sword-color;
+  border-left: sword-multiplier(1) solid transparent;
+  border-right: sword-multiplier(1) solid transparent;
+  height: 0;
+  width: sword-multiplier(8);
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+
+  // bevel
+  &::before {
+    width: sword-multiplier(1);
+    height: sword-multiplier(8);
+    background-color: #bbb;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // tip
+  &::after {
+    width: 0;
+    height: 0;
+    border-bottom: solid $sword-color sword-multiplier(4);
+    border-left: solid transparent sword-multiplier(4);
+    border-right: solid transparent sword-multiplier(4);
+    top: -(sword-multiplier(18));
+    left: -(sword-multiplier(1));
+  }
+}

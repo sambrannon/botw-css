@@ -1,8 +1,9 @@
 // base
 $logo-color: #ffecc5;
+$neutral-bg: #4e4e4e;
 
 //heart
-$heart-empty: #4e4e4e;
+$heart-empty: $neutral-bg;
 $heart-filled: #fa4047;
 $heart-temp: #fefc37;
 $base-heart-size: 8px;

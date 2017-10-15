@@ -7,6 +7,7 @@
   height: 0;
   color: $color;
   border: solid ($size * 0.5) currentColor;
+  backface-visibility: hidden;
 
   &::before,
   &::after {
@@ -20,7 +21,7 @@
   &::before {
     width: $size;
     height: ($size * $ratio);
-    top: -((($size * $ratio) + ($size * 0.5)) - 1px );
+    top: -(($size * $ratio) + ($size * 0.5));
     left: -($size * 0.5);
     border-radius: ($size * 0.5) ($size * 0.5) 0 0;
   }
@@ -29,7 +30,7 @@
     width: ($size * $ratio);
     height: $size;
     top: -($size * 0.5);
-    left: (($size * 0.5) - 1px);
+    left: ($size * 0.5);
     border-radius: 0 ($size * 0.5) ($size * 0.5) 0;
   }
 
